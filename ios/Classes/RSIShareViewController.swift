@@ -275,10 +275,10 @@ open class RSIShareViewController: SLComposeServiceViewController {
             if FileManager.default.fileExists(atPath: dstURL.path) {
                 try FileManager.default.removeItem(at: dstURL)
             }
-            if let pngData = UIImagePNGRepresentation(image) {
+            /*if let pngData = UIImagePNGRepresentation(image) {
                 try pngData.write(to: dstURL)
                 return true
-            }
+            }*/
             return false
         } catch (let error) {
             print("Cannot write to temp file: \(error)")
@@ -313,7 +313,7 @@ open class RSIShareViewController: SLComposeServiceViewController {
         assetImgGenerate.appliesPreferredTrackTransform = true
         //        let scale = UIScreen.main.scale
         assetImgGenerate.maximumSize = CGSize(width: 360, height: 360)
-        do {
+        /*do {
             let time = CMTimeMake(600, 1)
             let img = try assetImgGenerate.copyCGImage(at: time, actualTime: nil)
             if let pngData = UIImagePNGRepresentation(UIImage(cgImage: img)) {
@@ -322,7 +322,7 @@ open class RSIShareViewController: SLComposeServiceViewController {
             saved = true
         } catch {
             saved = false
-        }
+        }*/
 
         return saved ? (thumbnail: thumbnailPath.absoluteString, duration: duration) : nil
     }
